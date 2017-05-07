@@ -1,11 +1,12 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/iron-image/iron-image.html">
 <link rel="import" href="../../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../../bower_components/paper-card/paper-card.html">
-<!--<link rel="import" href="../../bower_components/polymer/lib/elements/dom-if.html">-->
-<!--<link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">-->
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <dom-module id="doc-results">
     <template>
@@ -13,6 +14,14 @@
             :host {
                 display: block;
                 background-color: #f0f0f0;
+            }
+
+            .horizontal {
+                @apply(--layout-horizontal);
+            }
+
+            .justified {
+                @apply(--layout-justified);
             }
 
             .resultsContainer {
@@ -43,7 +52,7 @@
                 <div class="resultsContainer">
                 <paper-card class="result">
                     <div class="card-content">
-                        <div class="result-header">[[item.name]] [[index]]</div>
+                        <div class="result-header">[[item.name]]</div>
                         <p class="resultinfo">
                             <iron-image class="avatar" sizing="contain" src="[[item.pic]]"></iron-image>
                             <b>[[item.specialty]]</b>
@@ -55,8 +64,8 @@
                     </div>
                     <div class="card-actions">
                         <div class="horizontal justified">
-                            <paper-icon-button icon="icons:event"></paper-icon-button>
-                            <paper-button class="cafe-reserve">Reservar</paper-button>
+                            <paper-button><iron-icon icon="icons:event"></iron-icon>Reservar</paper-button>
+                            <paper-button item="[[item]]" on-tap="showDetails"><iron-icon style="max-height: 20px"icon="icons:chevron-right"></iron-icon>Ver detalles</paper-button>
                         </div>
                     </div>
                 </paper-card>
@@ -93,6 +102,12 @@
                     }
                 };
             }
+
+            showDetails(e) {
+                console.log("item", e.srcElement.item);
+                window.location = "/details"
+            }
+
         }
 
         window.customElements.define(DocResults.is, DocResults);
