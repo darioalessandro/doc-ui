@@ -1,16 +1,68 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
 <!--<link rel="import" href="../../bower_components/polymer/lib/elements/dom-if.html">-->
 <!--<link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">-->
 
 <dom-module id="doc-results">
     <template>
-        <style>
+        <style include="iron-flex">
             :host {
                 display: block;
+                background-color: #f0f0f0;
+            }
+
+            .resultsContainer {
+                width:100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .resultinfo {
+                height: 140px;
+            }
+
+            .avatar {
+                width: 100px;
+                height: 140px;
+                float: left;
+            }
+
+            .result-header { @apply(--paper-font-headline);}
+
+            .result {
+                margin: 20px;
+                flex: 1 0 25%;
             }
         </style>
-        <h1>results</h1>
+
+            <template is="dom-repeat" items="{{results}}">
+                <div class="resultsContainer">
+                <paper-card class="result">
+                    <div class="card-content">
+                        <div class="result-header">[[item.name]] [[index]]</div>
+                        <p class="resultinfo">
+                            <iron-image class="avatar" sizing="contain" src="[[item.pic]]"></iron-image>
+                            <b>[[item.specialty]]</b>
+                            <br>
+                            [[item.visitcost]]<br>
+                            [[item.nextavailablevisit]]
+                        </p>
+                        <p>[[item.address]]</p>
+                    </div>
+                    <div class="card-actions">
+                        <div class="horizontal justified">
+                            <paper-icon-button icon="icons:event"></paper-icon-button>
+                            <paper-button class="cafe-reserve">Reservar</paper-button>
+                        </div>
+                    </div>
+                </paper-card>
+                </div>
+            </template>
+
     </template>
     <script>
         /** @polymerElement */
@@ -18,7 +70,27 @@
             static get is() { return 'doc-results'; }
             static get properties() {
                 return {
-
+                    results : {
+                        type : Object,
+                        value : [
+                            {
+                                name: "Dr Emilio Cornejo",
+                                specialty: "Cardiólogo Internista mega chingón",
+                                visitcost: "$1500 - $2000",
+                                nextavailablevisit: "3 de Mayo - 3 pm",
+                                address: "Insurgentes #230 Col. Jardines del Encanto. Irapuato, Guanajuato",
+                                pic : "/src/img/d1.png"
+                            },
+                            {
+                                name: "Dr Hilario Ernesto Garza",
+                                specialty: "Oftalmólogo",
+                                visitcost: "$1500 - $2000",
+                                nextavailablevisit: "25 de Mayo - 3 pm",
+                                address: "Guayabitos #23 Col. La Piedrita. Irapuato Gto",
+                                pic : "/src/img/d2.png"
+                            }
+                        ]
+                    }
                 };
             }
         }

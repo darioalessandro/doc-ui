@@ -1,7 +1,8 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
-<link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/iron-location/iron-location.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <!--<link rel="import" href="../../bower_components/polymer/lib/elements/dom-if.html">-->
 <!--<link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">-->
 <link rel="import" href="../doc-ui-el/doc-agenda.html">
@@ -15,10 +16,28 @@
     <style>
       :host {
         display: block;
+        font-family: "roboto";
+      }
+
+      .section {
+        height: 100%;
+      }
+
+      iron-pages {
+        height:100%;
+      }
+
+      .app-header {
+        background-color: white;
       }
 
     </style>
     <iron-location path="{{urlPath}}"></iron-location>
+    <app-header reveals>
+      <app-toolbar>
+        <div main-title>Doctores</div>
+      </app-toolbar>
+    </app-header>
     <iron-pages selected="[[section]]" attr-for-selected="name" fallback-selection="default">
       <doc-search name="search" class="section"></doc-search>
       <doc-results name="results" class="section"></doc-results>
