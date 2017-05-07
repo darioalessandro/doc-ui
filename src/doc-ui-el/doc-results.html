@@ -1,0 +1,28 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<!--<link rel="import" href="../../bower_components/polymer/lib/elements/dom-if.html">-->
+<!--<link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">-->
+
+<dom-module id="doc-results">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <h1>results</h1>
+    </template>
+    <script>
+        /** @polymerElement */
+        class DocResults extends Polymer.Element {
+            static get is() { return 'doc-results'; }
+            static get properties() {
+                return {
+
+                };
+            }
+        }
+
+        window.customElements.define(DocResults.is, DocResults);
+    </script>
+</dom-module>

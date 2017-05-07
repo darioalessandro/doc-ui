@@ -1,0 +1,7 @@
+{
+  "name": "doc-ui",
+  "short_name": "doc-ui",
+  "description": "App to schedule doctor appointments.",
+  "start_url": "/",
+  "display": "standalone"
+}

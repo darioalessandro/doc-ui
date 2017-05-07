@@ -1,0 +1,58 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/iron-location/iron-location.html">
+<!--<link rel="import" href="../../bower_components/polymer/lib/elements/dom-if.html">-->
+<!--<link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">-->
+<link rel="import" href="../doc-ui-el/doc-agenda.html">
+<link rel="import" href="../doc-ui-el/doc-confirmation.html">
+<link rel="import" href="../doc-ui-el/doc-details.html">
+<link rel="import" href="../doc-ui-el/doc-notfound.html">
+<link rel="import" href="../doc-ui-el/doc-results.html">
+<link rel="import" href="../doc-ui-el/doc-search.html">
+<dom-module id="doc-ui-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+    </style>
+    <iron-location path="{{urlPath}}"></iron-location>
+    <iron-pages selected="[[section]]" attr-for-selected="name" fallback-selection="default">
+      <doc-search name="search" class="section"></doc-search>
+      <doc-results name="results" class="section"></doc-results>
+      <doc-details name="details" class="section"></doc-details>
+      <doc-confirmation name="confirmation" class="section"></doc-confirmation>
+      <doc-agenda name="agenda" class="section"></doc-agenda>
+      <doc-default name="default" class="section"></doc-default>
+    </iron-pages>
+  </template>
+
+  <script>
+    /** @polymerElement */
+    class DocUiApp extends Polymer.Element {
+      static get is() { return 'doc-ui-app'; }
+      static get properties() {
+        return {
+            section: {
+              type: String,
+              value: 'search'
+          },
+            urlPath : {
+                type : String,
+                value : '',
+                observer : '_onPathChanged'
+            }
+        };
+      }
+
+      _onPathChanged(newValue, oldValue) {
+          const pathComponents = newValue.split('/');
+          this.section = pathComponents[1];
+      }
+    }
+
+    window.customElements.define(DocUiApp.is, DocUiApp);
+  </script>
+</dom-module>
