@@ -64,7 +64,7 @@
                     </div>
                     <div class="card-actions">
                         <div class="horizontal justified">
-                            <paper-button><iron-icon icon="icons:event"></iron-icon>Reservar</paper-button>
+                            <paper-button on-tap="makeAppointment"><iron-icon icon="icons:event"></iron-icon>Reservar</paper-button>
                             <paper-button item="[[item]]" on-tap="showDetails"><iron-icon style="max-height: 20px"icon="icons:chevron-right"></iron-icon>Ver detalles</paper-button>
                         </div>
                     </div>
@@ -106,6 +106,11 @@
             showDetails(e) {
                 console.log("item", e.srcElement.item);
                 window.location = "/details"
+            }
+
+            makeAppointment(e){
+                console.log("item", e.srcElement.item);
+                window.location = "/agenda"
             }
 
         }

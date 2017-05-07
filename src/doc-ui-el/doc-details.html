@@ -58,7 +58,7 @@
                 <p>[[item.address]]</p>
             </div>
             <div class="card-actions">
-                <paper-button><iron-icon icon="icons:event"></iron-icon>Reservar</paper-button>
+                <paper-button on-tap="makeAppointment"><iron-icon icon="icons:event"></iron-icon>Reservar</paper-button>
             </div>
         </paper-card>
         </div>
@@ -82,6 +82,11 @@
                         },
                     }
                 };
+            }
+
+            makeAppointment(e){
+                console.log("item", e.srcElement.item);
+                window.location = "/agenda"
             }
         }
 

@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <!--<link rel="import" href="../../bower_components/polymer/lib/elements/dom-if.html">-->
 <!--<link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">-->
 
@@ -8,9 +9,23 @@
         <style>
             :host {
                 display: block;
+                background-color: #f0f0f0;
             }
+
+            .resultsContainer {
+                width:100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            label {
+                margin-top: 100px;
+            }
+
         </style>
-        <h1>agenda</h1>
+        <div class="resultsContainer vertical layout center-justified">
+            <label>Selecciona fecha / hora y oprime AGENDAR CITA:</label>
+        </div>
     </template>
     <script>
         /** @polymerElement */
