@@ -3,9 +3,20 @@
   "description": "App to schedule doctor appointments.",
   "main": "index.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^2.0.0-rc.3",
+    "polymer": "Polymer/polymer#^2.0.0-rc.7",
     "iron-pages" : "PolymerElements/iron-pages#2.0-preview",
-    "iron-ajax" : "PolymerElements/iron-ajax#2.0-preview"
+    "iron-ajax" : "PolymerElements/iron-ajax#2.0-preview",
+    "iron-icon": "PolymerElements/iron-icon#^1.0.7",
+    "iron-iconset-svg": "PolymerElements/iron-iconset-sv#2.0-preview",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#2.0-preview",
+    "iron-media-query": "PolymerElements/iron-media-query#2.0-preview",
+    "iron-resizable": "PolymerElements/iron-resizable-behavior#2.0-preview",
+    "iron-selector": "PolymerElements/iron-selector#2.0-preview",
+    "neon-animation": "PolymerElements/neon-animation#2.0-preview",
+    "paper-ripple": "PolymerElements/paper-ripple#2.0-preview",
+    "paper-styles": "PolymerElements/paper-styles#2.0-preview",
+    "paper-card": "PolymerElements/paper-card#2.0-preview",
+    "moment": "~2.15.0"
   },
   "devDependencies": {
     "web-component-tester": "^6.0.0-prerelease.5",
